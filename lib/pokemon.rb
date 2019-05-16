@@ -20,4 +20,8 @@ def initialize(id:nil, name:nil, type:nil, hp:nil, db:nil)
   pokemon_instance=Pokemon.new(pokemon_object)
   end
 
+  def alter_hp(num, db)
+      db.execute("UPDATE pokemon SET hp = ? WHERE id = ?", [num], [self.id])
+      self.hp = num
+    end
 end
